@@ -14,16 +14,13 @@ public class ReverseString {
         String s2 = "";
 
         char c;
-
-        System.out.print("Original String :" + s + "\nReverse String :");
-
+        System.out.print("Original String: " + s + "\nReverse String: ");
         for (int i = s.length() - 1; i >= 0; i--) {
             c = s.charAt(i);
             s1 = s1 + c;
         }
 
         System.out.print(s1);
-
         System.out.println("\n");
 
         if (s.equals(s1)) {

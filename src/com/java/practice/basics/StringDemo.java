@@ -29,6 +29,15 @@ public class StringDemo {
             }
             System.out.print(r + " ");
         }
+        System.out.println("\n-------------------------");
+        String s11 = "InterviewBit";
+        String s2 = s11;
+
+        System.out.println(s11 == s2); //they are equal
+
+        s11 += "Scaler";
+
+        System.out.println(s11 == s2); //not equal
 
     }
 }

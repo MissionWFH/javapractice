@@ -7,11 +7,11 @@ public class CollectionsDemo {
     public static void main(String args[]) {
 
         //List<Integer> al=new ArrayList<>();
-        // List<Integer> al=new LinkedList<>();
+        //List<Integer> al=new LinkedList<>();
 
-        // Set<Integer> al=new TreeSet<>();
-        // Set<Integer> al=new HashSet<>();
-        // Set<Integer> al=new LinkedHashSet<>();
+        //Set<Integer> al=new HashSet<>();
+        //Set<Integer> al=new LinkedHashSet<>();
+        //Set<Integer> al=new TreeSet<>();
 
         Map<Integer, String> al = new HashMap<>();
         //Map<Integer, String> al = new LinkedHashMap<>();
@@ -35,6 +35,7 @@ public class CollectionsDemo {
         al.put(1, null);
         al.put(2, "4");
         al.put(2, "45656");
+		al.put(7, "AA");
         al.put(3, "avi");
         al.put(3, "Amit");
         al.put(4, null);
@@ -44,6 +45,7 @@ public class CollectionsDemo {
         al.put(8, "Sachin");
         //al.put(null, "5");
         //al.put(null, "123");
+		//al.put(null, null);
 
         System.out.println(al);
         System.out.println(al.getClass().getSimpleName() + " after inserting values size: " + al.size() + "\n");
@@ -54,9 +56,8 @@ public class CollectionsDemo {
          * }
          */
 
-        for (Map.Entry m : al.entrySet()) {
+        /*for (Map.Entry m : al.entrySet()) {
             System.out.println(m.getKey() + " " + m.getValue());
-        }
-
+        }*/
     }
 }

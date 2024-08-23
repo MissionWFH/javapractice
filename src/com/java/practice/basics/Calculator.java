@@ -6,22 +6,18 @@ import java.util.Scanner;
 public class Calculator {
 
     public static void main(String[] args) {
-
+        Calculations calculations = new Calculations();
         String ans;
-        Scanner sc = new Scanner(System.in);
 
-        try {
-            Calculatoins.operations();
-
+        try (Scanner sc = new Scanner(System.in)) {
+            calculations.operations();
             while (true) {
-
                 System.out.println("\nDo you want to continue ? y/n ");
-
                 ans = sc.next();
                 System.out.println("------------------------------------------");
 
                 if (ans.equalsIgnoreCase("Y")) {
-                    Calculatoins.operations();
+                    calculations.operations();
                 } else {
                     System.out.println("Thank you !!!");
                     break;
@@ -31,7 +27,7 @@ public class Calculator {
             System.out.println("\nInvalid Choice....");
             System.out.println("please select above operation");
             System.out.println("------------------------------------------");
-            Calculatoins.operations();
+            calculations.operations();
         }
     }
 }

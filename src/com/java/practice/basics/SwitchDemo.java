@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class SwitchDemo {
 
     public static void main(String[] args) {
-        System.out.println("Enter any number to conver alphabetical order.");
 
+        System.out.println("Enter any number to convert alphabetical order.");
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
 
@@ -44,7 +44,5 @@ public class SwitchDemo {
             default:
                 System.out.println("Sorry we can performing upto 10 digit only.\nYou entered number is greater than 10");
         }
-
     }
-
 }

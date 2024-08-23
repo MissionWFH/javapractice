@@ -5,12 +5,12 @@ abstract class A {
 }
 
 interface B {
-    abstract void m1(String s);
+    void m1(String s);
 
 }
 
 interface C {
-    abstract void m1(String s);
+     void m1(String s);
 
 }
 

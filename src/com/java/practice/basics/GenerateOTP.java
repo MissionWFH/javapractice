@@ -12,7 +12,6 @@ public class GenerateOTP {
             sb.append(r.nextInt(9) + 1);
         }
         System.out.println(sb);
-
     }
 
     public static void main(String[] args) {

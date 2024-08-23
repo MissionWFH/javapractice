@@ -2,11 +2,14 @@ package com.java.practice.basics;
 
 import java.util.Scanner;
 
-public class Calculatoins {
+public class Calculations {
 
-    static int a, b, c, choice;
+    int a;
+    int b;
+    int c;
+    int choice;
 
-    public static void operations() {
+    public void operations() {
 
         @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);

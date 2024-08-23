@@ -11,8 +11,7 @@ public class EvenDemo {
     public static void even(int i, int j) {
 
         List<Integer> list = new ArrayList<>();
-        int k = 0;
-
+        int k;
         for (k = i; k <= j; k++) {
             list.add(k);
             System.out.print(k + " ");
@@ -25,7 +24,6 @@ public class EvenDemo {
                 System.out.print(m + " ");
             }
         }
-
         list.stream().mapToInt(num -> num).filter(even -> even % 2 == 0).forEach(data -> System.out.print(data + " "));
     }
 }

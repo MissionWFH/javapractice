@@ -1,30 +1,15 @@
 package com.java.practice.basics;
 
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class SortingString {
 
     public static void main(String[] args) {
 
-        String name = "Avinash Walke";
-
-        Set<Character> sort = new TreeSet<Character>();
-        char[] c1 = null;
-        char c = 0;
-
-        for (int i = 0; i < name.length(); i++) {
-            c1 = name.toCharArray();
-            sort.add(c1[i]);
-
-            c = name.charAt(i);
-            sort.add(c);
-        }
-        System.out.println(c);
-        // Collections.sort(sort);
-        System.out.println(sort);
-
-        for (Character s : sort)
-            System.out.print(s + ",");
+        String name = "avinash walke";
+        System.out.println("Original String: " + name);
+        String sortedString = Arrays.stream(name.split("")).sorted().collect(Collectors.joining());
+        System.out.println("Sorted String: " + sortedString);
     }
 }

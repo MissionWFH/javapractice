@@ -1,7 +1,8 @@
 package com.java.practice.multithreading.concurrent.demo;
 
 class Customer {
-    int amount = 10000;
+
+    private int amount = 10000;
 
     Customer() {
         System.out.println("-----------------------------");
@@ -11,12 +12,12 @@ class Customer {
 
     synchronized void withdraw(int amount) {
         System.out.println(Thread.currentThread().getName() + ": going to withdraw " + amount + " amount ...");
-
         if (this.amount < amount) {
-            System.out.println("Insufficient balance to withdraw. Please deposit some amount...\n");
+            System.out.println("Insufficient balance to withdraw. Current balance: " + this.amount + "\n");
             try {
                 wait(); // waiting thread...
-            } catch (Exception e) {
+            } catch (InterruptedException ie) {
+                System.out.println(ie);
             }
         }
 
@@ -39,26 +40,11 @@ class Customer {
 }
 
 class ConcurrentDemo {
+
     public static void main(String args[]) {
         final Customer c = new Customer();
-
-        new Thread() {
-            public void run() {
-                c.withdraw(15000);
-            }
-        }.start();
-
-        new Thread() {
-            public void run() {
-                c.withdraw(10000);
-            }
-        }.start();
-
-        new Thread() {
-            public void run() {
-                c.deposit(10000);
-            }
-        }.start();
-
+        new Thread(() -> c.withdraw(15000)).start();
+        new Thread(() -> c.withdraw(10000)).start();
+        new Thread(() -> c.deposit(10000)).start();
     }
 }

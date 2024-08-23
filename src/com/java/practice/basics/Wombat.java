@@ -1,7 +1,7 @@
 package com.java.practice.basics;
 
-
 class Wombat {
+
     static int frogCount = 0;            // Declare and initialize
 
     // static variable

@@ -3,15 +3,18 @@ package com.java.practice.basics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fibbonises {
+public class FibonacciDemo {
+
     public static void main(String[] args) {
 
-        int no1 = 0, no2 = 1, no3 = 0, sum = 0;
+        int no1 = 0;
+        int no2 = 1;
+        int no3 = 0;
+        int sum = 0;
 
-        System.out.print("Fiboniese series :" + no1 + " " + no2);
+        System.out.print("Fibonacci series: " + no1 + " " + no2);
 
         List<Integer> list = new ArrayList<>();
-
         for (int i = 2; i <= 10; i++) {
             no3 = no1 + no2;
             no1 = no2;
@@ -25,8 +28,6 @@ public class Fibbonises {
                 sum = sum + i;
             }
         }
-
-        System.out.println("\nSum of even numbers in fibonises series :" + sum);
+        System.out.println("\nSum of even numbers in Fibonacci series: " + sum);
     }
-
 }

@@ -7,26 +7,23 @@ import java.util.Scanner;
 
 public class SearchElement {
 
-    static StringBuffer sb;
-
     static int[] getRandomNums() {
-
+        StringBuilder sb;
         List<Integer> list = new ArrayList<>();
         Random r = new Random();
 
         for (int j = 0; j < 10; j++) {
-            sb = new StringBuffer();
+            sb = new StringBuilder();
             for (int i = 0; i < 2; i++) {
                 sb.append(r.nextInt(9) + 1);
             }
             list.add(Integer.parseInt(sb.toString()));
         }
         return list.stream().mapToInt(i -> i).toArray();
-
     }
 
     public static void main(String[] args) {
-        int search = 0;
+        int search;
         Scanner sc = new Scanner(System.in);
         while (true) {
             int[] a = getRandomNums();

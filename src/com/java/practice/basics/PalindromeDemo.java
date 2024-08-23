@@ -2,15 +2,17 @@ package com.java.practice.basics;
 
 import java.util.Scanner;
 
-public class PalindromNum {
+public class PalindromeDemo {
 
     public static void main(String[] args) {
+
         System.out.println("Enter number");
         Scanner sc = new Scanner(System.in);
 
         int num = sc.nextInt();
-
-        int temp, rev, sum = 0;
+        int temp;
+        int rev;
+        int sum = 0;
         temp = num;
 
         while (num > 0) {
@@ -26,5 +28,4 @@ public class PalindromNum {
             System.out.println("normal num");
         }
     }
-
 }

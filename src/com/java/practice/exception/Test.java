@@ -19,17 +19,17 @@ public class Test {
         try {
             System.out.println("in try");
             a = 3 / 3;
-            String s = "null";
+            String s = null;
             System.out.println(s.length());
-            return a;
+            return 100;
         } catch (ArithmeticException ae) {
             System.out.println("in ArithmeticException catch");
             a = 3 - 4;
-            return a;
+            return 200;
         } catch (NullPointerException ne) {
-            System.out.println("in ArithmeticException catch");
+            System.out.println("in NullPointerException catch");
             a = 3 + 4;
-            return a;
+            return 300;
         } /*catch (Exception e) {
             System.out.println("in catch");
             a = 3 + 4;
@@ -37,7 +37,7 @@ public class Test {
         }*/ finally {
             System.out.println("in finally");
             a = 3 * 4;
-            //return a;
+            return 400;
         }
     }
 }

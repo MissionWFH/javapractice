@@ -62,7 +62,5 @@ public class EmpDetails {
         System.out.println("Emp_ID \tEmp_Name \tEmp_Post \t Emp_Net_Salary \t Emp_deducted_PF");
         System.out.println(getEmpId() + "\t" + getEmpName() + "\t" + getPost() + "\t\t  " + getEmpSal() + "\t\t" + PF);
         System.out.println("======================================================================");
-
     }
-
 }

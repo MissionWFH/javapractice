@@ -2,7 +2,6 @@ package com.java.practice.basics;
 
 import java.util.Scanner;
 
-
 class Demo {
     public static void main(String[] args) {
         int a, b;
@@ -16,6 +15,5 @@ class Demo {
         a = a - b;
 
         System.out.print("\na = " + a + " b = " + b);
-
     }
 }

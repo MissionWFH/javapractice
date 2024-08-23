@@ -5,9 +5,7 @@ import java.util.Date;
 
 public class DateDemo {
 
-    public DateDemo() {
-        // TODO Auto-generated constructor stub
-    }
+    public DateDemo() {}
 
     public static void main(String[] args) {
 

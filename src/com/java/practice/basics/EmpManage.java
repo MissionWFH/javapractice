@@ -2,7 +2,7 @@ package com.java.practice.basics;
 
 import java.util.Scanner;
 
-public class empManage {
+public class EmpManage {
 
     public static void main(String args[]) {
 
@@ -38,7 +38,6 @@ public class empManage {
             emp.setEmpSal(empSal);
 
             emp.display();
-
 
         } catch (Exception e) {
             e.printStackTrace();

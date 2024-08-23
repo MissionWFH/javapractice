@@ -1,20 +1,18 @@
 package com.java.practice.collections;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class StreamDemo {
 
     public static void main(String[] args) {
-        List<Student> studentList = new ArrayList<>();
-        studentList.add(new Student("Ravi", "Modern", 12));
-        studentList.add(new Student("Sai", "DVS", 30));
-        studentList.add(new Student("Om", "Modern", 10));
-        studentList.add(new Student("Avi", "DVS", 28));
-        studentList.add(new Student("Sai", "ZP", 16));
-        studentList.add(new Student("Kishor", "DVS", 34));
+
+        List<Student> studentList = Arrays.asList(
+                new Student("Ravi", "Modern", 12),
+                new Student("Sai", "DVS", 30),
+                new Student("Om", "Modern", 10),
+                new Student("Avi", "DVS", 28),
+                new Student("Sai", "ZP", 16),
+                new Student("Kishor", "DVS", 34));
 
         System.out.println("::::: Sort based on Age of students ::::: ");
         Collections.sort(studentList, new AgeComparator()); // sorting based on age of students
@@ -27,16 +25,18 @@ public class StreamDemo {
 
         System.out.println("=================================================");
         System.out.println("::::: Filter the students that age is > 15 ::::: ");
-        studentList.stream().sorted((s1, s2) -> s1.getAge() - s2.getAge()).filter(age -> age.getAge() > 15)
+        studentList.stream().sorted(Comparator.comparingInt(Student::getAge)).filter(age -> age.getAge() > 15)
                 .forEach(System.out::println);
 
         System.out.println("=================================================");
         System.out.println("::::: Get the min age of student ::::: ");
-        // studentList.stream().min((s1, s2) -> s1.getAge() - s2.getAge()).stream().forEach(System.out::println);
+        Student minAgeStudent = studentList.stream().min(Comparator.comparingInt(Student::getAge)).get();
+        studentList.stream().filter(studList -> studList.getAge() == minAgeStudent.getAge()).forEach(System.out::println);
 
         System.out.println("=================================================");
         System.out.println("::::: Get the max age of student ::::: ");
-        //studentList.stream().max((s1, s2) -> s1.getAge() - s2.getAge()).stream().forEach(System.out::println);
+        Student maxAgeStudent = studentList.stream().max(Comparator.comparingInt(Student::getAge)).get();
+        studentList.stream().filter(studList -> studList.getAge() == maxAgeStudent.getAge()).forEach(System.out::println);
 
         System.out.println("=================================================");
         System.out.println("::::: Sort based on Age of students using Comparable ::::: ");

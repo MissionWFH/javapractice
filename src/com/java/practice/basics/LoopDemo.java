@@ -1,6 +1,5 @@
 package com.java.practice.basics;
 
-
 public class LoopDemo {
 
     public LoopDemo() {
@@ -15,6 +14,5 @@ public class LoopDemo {
             System.out.println(i);
         }
     }
-
 }
 
