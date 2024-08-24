@@ -1,6 +1,7 @@
 package com.java.practice.exception;
 
 public class Test1 {
+
     public static void throwit() throws Error {
         throw new Error();
     }

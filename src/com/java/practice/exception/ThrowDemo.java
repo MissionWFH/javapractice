@@ -1,9 +1,7 @@
 package com.java.practice.exception;
 
 public class ThrowDemo extends Exception {
-    /**
-     *
-     */
+
     private static final long serialVersionUID = 1L;
 
     static void m1() throws ThrowDemo {
