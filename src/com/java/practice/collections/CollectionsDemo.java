@@ -49,6 +49,8 @@ public class CollectionsDemo {
 
         System.out.println(al);
         System.out.println(al.getClass().getSimpleName() + " after inserting values size: " + al.size() + "\n");
+        //al.forEach(System.out::println);
+        al.entrySet().forEach(map -> System.out.println(map.getKey() + " " + map.getValue()));
 
         /*
          * for(Object o: al){

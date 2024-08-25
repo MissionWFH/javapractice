@@ -4,38 +4,19 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class DuplicateChar {
-
-    public static String removeDuplicateChar(String name) {
-        String rev = "";
-
-        for (int i = 0; i < name.length(); i++) {
-            boolean found = false;
-
-            for (int j = 0; j < rev.length(); j++) {
-
-                if (name.charAt(i) == rev.charAt(j)) {
-                    found = true;
-                    System.out.println(name.charAt(i));
-                    // break;
-                }
-            }
-            if (!found) {
-                rev = rev.concat(String.valueOf(name.charAt(i)));
-            }
-        }
-        System.out.println(rev);
-
-        return rev;
-    }
+public class CharOccurrenceDemo {
 
     public static void main(String[] args) {
 
         String input = "aarvi";
-        String name = input.toLowerCase();
-        //removeDuplicateChar(name);
+        String name = input.replaceAll("\\s+", "").toLowerCase();
 
         System.out.println("Original input: " + name);
+
+        String afterDuplicateChar = String.join("", Arrays.stream(name.split(""))
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .keySet());
+        System.out.println("After removing duplicate char: " + afterDuplicateChar);
 
         Map<String, Long> charOccurrenceCount = Arrays.stream(name.split(""))
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
@@ -46,6 +27,7 @@ public class DuplicateChar {
                 .entrySet()
                 .stream()
                 .filter(x -> x.getValue() >= 2)
+                .sorted(Comparator.comparingLong(Map.Entry::getValue))
                 .collect(Collectors.toList());
         System.out.println("Duplicate Char count: " + duplicateCharCount);
 
@@ -57,13 +39,31 @@ public class DuplicateChar {
                 .collect(Collectors.toList());
         System.out.println("Unique Char count: " + uniqueCharCount);
 
-        String nonRepeatFirstElement = Arrays.stream(name.split(""))
+        String nonRepeatFirstChar = Arrays.stream(name.split(""))
                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .filter(x -> x.getValue() == 1)
                 .map(Map.Entry::getKey)
                 .findFirst().orElse(null);
-        System.out.println("non-repeat First Element: " + nonRepeatFirstElement);
+        System.out.println("Non-repeat first char: " + nonRepeatFirstChar);
+
+        String maximumRepeatChar = Arrays.stream(name.split(""))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .max(Comparator.comparingLong(Map.Entry::getValue))
+                .map(Map.Entry::getKey)
+                .orElse(null);
+        System.out.println("Maximum repeat char: " + maximumRepeatChar);
+
+        String minimumRepeatChar = Arrays.stream(name.split(""))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .min(Comparator.comparingLong(Map.Entry::getValue))
+                .map(Map.Entry::getKey)
+                .orElse(null);
+        System.out.println("Minimum repeat char: " + minimumRepeatChar);
     }
 }
