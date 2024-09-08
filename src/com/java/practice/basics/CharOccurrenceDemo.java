@@ -65,5 +65,11 @@ public class CharOccurrenceDemo {
                 .map(Map.Entry::getKey)
                 .orElse(null);
         System.out.println("Minimum repeat char: " + minimumRepeatChar);
+
+        String nTHChar = Arrays.stream(name.split(""))
+                .skip(2) // skip (N-1) to get requested char
+                .findFirst()
+                .orElse(null);
+        System.out.println("First 3rd char: " + nTHChar);
     }
 }
