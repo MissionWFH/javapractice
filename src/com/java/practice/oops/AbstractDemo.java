@@ -10,7 +10,7 @@ interface B {
 }
 
 interface C {
-     void m1(String s);
+    void m1(String s);
 
 }
 

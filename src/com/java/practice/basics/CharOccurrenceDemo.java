@@ -13,9 +13,9 @@ public class CharOccurrenceDemo {
 
         System.out.println("Original input: " + name);
 
-        String afterDuplicateChar = String.join("", Arrays.stream(name.split(""))
-                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-                .keySet());
+        String afterDuplicateChar = Arrays.stream(name.split(""))
+                .distinct()
+                .collect(Collectors.joining());
         System.out.println("After removing duplicate char: " + afterDuplicateChar);
 
         Map<String, Long> charOccurrenceCount = Arrays.stream(name.split(""))
@@ -71,5 +71,20 @@ public class CharOccurrenceDemo {
                 .findFirst()
                 .orElse(null);
         System.out.println("First 3rd char: " + nTHChar);
+
+        List<String> list = List.of("ASD", "QWE");
+
+        List<Character> list1 = list.stream()
+                .flatMap(s -> s.chars().mapToObj(c -> (char) c))
+                .toList();
+        System.out.println(list1);
+
+        List<String> strings = Arrays.asList("apple", "banana", "orange", "grape", "melon");
+        char target = 'a';
+        long occurrences = strings.stream()
+                .flatMapToInt(CharSequence::chars)
+                .filter(c -> c == target)
+                .count();
+        System.out.println("Occurrences of '" + target + "': " + occurrences);
     }
 }

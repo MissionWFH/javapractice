@@ -9,35 +9,28 @@ public class ReverseString {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter String");
 
-        String s = sc.next();
-        String s1 = "";
+        String input = sc.next();
         String s2 = "";
 
-        char c;
-        System.out.print("Original String: " + s + "\nReverse String: ");
-        for (int i = s.length() - 1; i >= 0; i--) {
-            c = s.charAt(i);
-            s1 = s1 + c;
+        StringBuilder revStr = new StringBuilder();
+        for (int i = input.length() - 1; i >= 0; i--) {
+            revStr.append(input.charAt(i));
         }
 
-        System.out.print(s1);
-        System.out.println("\n");
-
-        if (s.equals(s1)) {
-            System.out.println("Same String");
+        if (input.equals(revStr.toString())) {
+            System.out.println("give input is palindrome");
         } else {
-            System.out.println("Does not match String");
+            System.out.println("give input is not palindrome");
         }
 
         System.out.println("---------------------------------------------------");
         System.out.println("Reverse String  by toCharArray() method of string....");
 
-        char[] ch = s.toCharArray();
+        char[] ch = input.toCharArray();
 
         for (int i = ch.length - 1; i >= 0; i--) {
             s2 = s2 + ch[i];
         }
-
         System.out.println(s2);
     }
 }

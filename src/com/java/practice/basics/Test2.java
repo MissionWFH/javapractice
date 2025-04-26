@@ -15,6 +15,7 @@ public class Test2 {
         System.out.println(s1.equals(s2));  // true
         System.out.println(s1 == s3);       // true
         System.out.println(s1.equals(s3));  // true
+        System.out.println(s3);
         System.out.println("------------------------------------------");
 
         List<Object> list = new ArrayList<>();
@@ -33,6 +34,7 @@ public class Test2 {
         nameList.add("Sainath");
         nameList.add("Avinash");
         nameList.add("Dipali");
+        nameList.add("Aarvi");
 
         nameList.stream().filter(name -> name.startsWith("A")).forEach(System.out::println);
     }

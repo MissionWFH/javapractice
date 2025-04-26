@@ -34,7 +34,7 @@ public class Test {
             System.out.println("in catch");
             a = 3 + 4;
             return a;
-        }*/ finally {
+        } */ finally {
             System.out.println("in finally");
             a = 3 * 4;
             return 400;

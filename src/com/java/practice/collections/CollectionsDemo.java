@@ -35,7 +35,7 @@ public class CollectionsDemo {
         al.put(1, null);
         al.put(2, "4");
         al.put(2, "45656");
-		al.put(7, "AA");
+        al.put(7, "AA");
         al.put(3, "avi");
         al.put(3, "Amit");
         al.put(4, null);
@@ -45,7 +45,7 @@ public class CollectionsDemo {
         al.put(8, "Sachin");
         //al.put(null, "5");
         //al.put(null, "123");
-		//al.put(null, null);
+        //al.put(null, null);
 
         System.out.println(al);
         System.out.println(al.getClass().getSimpleName() + " after inserting values size: " + al.size() + "\n");

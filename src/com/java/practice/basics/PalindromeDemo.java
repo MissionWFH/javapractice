@@ -23,7 +23,7 @@ public class PalindromeDemo {
         System.out.println(sum);
 
         if (temp == sum) {
-            System.out.println("Pallindrom num");
+            System.out.println("Palindrome num");
         } else {
             System.out.println("normal num");
         }

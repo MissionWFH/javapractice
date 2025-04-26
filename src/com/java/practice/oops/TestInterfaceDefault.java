@@ -4,7 +4,12 @@ interface Drawable {
     void draw();
 
     default void msg() {
+        getdata();
         System.out.println("default interface method");
+    }
+
+    private static void getdata() {
+        System.out.println("private method in interface");
     }
 }
 

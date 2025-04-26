@@ -26,6 +26,6 @@ public class C1 {
         A1 object = new B1();
         System.out.println(object.a); // 10
         object.m1();
-        // object.m2();
+        //z object.m2();
     }
 }

@@ -11,38 +11,18 @@ public class SwitchDemo {
         int num = sc.nextInt();
 
         switch (num) {
-            case 1:
-                System.out.println(num + " = A");
-                break;
-            case 2:
-                System.out.println(num + " = B");
-                break;
-            case 3:
-                System.out.println(num + " = C");
-                break;
-            case 4:
-                System.out.println(num + " = D");
-                break;
-            case 5:
-                System.out.println(num + " = E");
-                break;
-            case 6:
-                System.out.println(num + " = F");
-                break;
-            case 7:
-                System.out.println(num + " = G");
-                break;
-            case 8:
-                System.out.println(num + " = H");
-                break;
-            case 9:
-                System.out.println(num + " = I");
-                break;
-            case 10:
-                System.out.println(num + " = J");
-                break;
-            default:
-                System.out.println("Sorry we can performing upto 10 digit only.\nYou entered number is greater than 10");
+            case 1 -> System.out.println(num + " = A");
+            case 2 -> System.out.println(num + " = B");
+            case 3 -> System.out.println(num + " = C");
+            case 4 -> System.out.println(num + " = D");
+            case 5 -> System.out.println(num + " = E");
+            case 6 -> System.out.println(num + " = F");
+            case 7 -> System.out.println(num + " = G");
+            case 8 -> System.out.println(num + " = H");
+            case 9 -> System.out.println(num + " = I");
+            case 10 -> System.out.println(num + " = J");
+            default ->
+                    System.out.println("Sorry we can performing upto 10 digit only.\nYou entered number is greater than 10");
         }
     }
 }
