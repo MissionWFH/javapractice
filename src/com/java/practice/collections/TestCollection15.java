@@ -1,12 +1,9 @@
 package com.java.practice.collections;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 class TestCollection15 {
-    @SuppressWarnings("rawtypes")
+
     public static void main(String args[]) {
 
         Map<Integer, String> hm = new TreeMap<Integer, String>();

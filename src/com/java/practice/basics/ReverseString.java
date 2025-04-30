@@ -18,9 +18,9 @@ public class ReverseString {
         }
 
         if (input.equals(revStr.toString())) {
-            System.out.println("give input is palindrome");
+            System.out.println("given input is palindrome");
         } else {
-            System.out.println("give input is not palindrome");
+            System.out.println("given input is not palindrome");
         }
 
         System.out.println("---------------------------------------------------");

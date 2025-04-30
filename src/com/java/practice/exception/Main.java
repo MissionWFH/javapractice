@@ -3,7 +3,7 @@ package com.java.practice.exception;
 class A {
     public int m1(int a) {
         try {
-            System.out.println("insisde m1");
+            System.out.println("inside m1");
             return 100;
         } catch (Exception e) {
             System.out.println(e);
@@ -20,13 +20,13 @@ class A {
     }*/
 
     public void m1(int a, String str) {
-        System.out.println("insisde m1 with String A");
+        System.out.println("inside m1 with String A");
     }
 }
 
 class B extends A {
     public void m1(int a, String str) {
-        System.out.println("insisde m1 with String B");
+        System.out.println("inside m1 with String B");
     }
 }
 

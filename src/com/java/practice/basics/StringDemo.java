@@ -22,10 +22,10 @@ public class StringDemo {
 
         System.out.println("\n-------------------------");
 
+        StringBuilder r = new StringBuilder();
         for (String w : words) {
-            String r = "";
             for (int i = w.length() - 1; i >= 0; i--) {
-                r += w.charAt(i);
+                r.append(w.charAt(i));
             }
             System.out.print(r + " ");
         }

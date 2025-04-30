@@ -1,12 +1,12 @@
 package com.java.practice.multithreading.runnable;
 
-class Multi3 implements Runnable {
+class RunnableDemo implements Runnable {
     public void run() {
         System.out.println("thread is running...");
     }
 
     public static void main(String args[]) {
-        Multi3 m1 = new Multi3();
+        RunnableDemo m1 = new RunnableDemo();
         Thread t1 = new Thread(m1);
         t1.start();
     }

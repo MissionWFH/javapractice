@@ -1,6 +1,6 @@
 package com.java.practice.multithreading.thread;
 
-public class TestThreadTwice1 extends Thread {
+public class ThreadRunTwiceDemo extends Thread {
 
     public void run() {
         System.out.println("running...");
@@ -9,9 +9,9 @@ public class TestThreadTwice1 extends Thread {
 
     public static void main(String args[]) {
         System.out.println(Thread.currentThread().getName() + " -Thread");
-        TestThreadTwice1 t1 = new TestThreadTwice1();
+        ThreadRunTwiceDemo t1 = new ThreadRunTwiceDemo();
 
-        // t1.start();
         t1.start();
+       // t1.start(); //RE: IllegalThreadStateException
     }
 }  

@@ -2,7 +2,7 @@ package com.java.practice.basics;
 
 import java.util.Scanner;
 
-class Demo {
+class SwapNum {
     public static void main(String[] args) {
         int a, b;
         Scanner sc = new Scanner(System.in);

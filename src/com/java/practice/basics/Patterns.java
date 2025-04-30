@@ -1,6 +1,6 @@
 package com.java.practice.basics;
 
-public class Pattern {
+public class Patterns {
 
     public static void main(String[] args) {
 

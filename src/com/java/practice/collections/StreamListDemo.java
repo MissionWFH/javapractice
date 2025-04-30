@@ -1,9 +1,6 @@
 package com.java.practice.collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -71,5 +68,20 @@ public class StreamListDemo {
                 .filter(s -> !s.isEmpty())
                 .collect(Collectors.toSet());
         System.out.println("Pairs that sum up to " + target + ": " + pairs);
+
+//        List<Integer> numbers = List.of(5, 2, 8, 3, 7);
+        Map<String, Integer> minMax = numbers.stream()
+                .collect(Collectors.teeing(
+                        Collectors.minBy(Integer::compareTo),
+                        Collectors.maxBy(Integer::compareTo),
+                        (min, max) -> {
+                            Map<String, Integer> result = new HashMap<>();
+                            result.put("min", min.get());
+                            result.put("max", max.get());
+                            return result;
+                        }
+                ));
+        System.out.println(minMax);
+
     }
 }

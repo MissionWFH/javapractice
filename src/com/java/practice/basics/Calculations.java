@@ -33,75 +33,61 @@ public class Calculations {
         System.out.println("------------------------------------------");
 
         switch (choice) {
-            case 1:
+            case 1 -> {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
                 b = sc.nextInt();
                 c = a + b;
                 System.out.println("Addtion of two numbers is: " + c);
                 System.out.println("------------------------------------------");
-
-                break;
-
-            case 2:
+            }
+            case 2 -> {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
                 b = sc.nextInt();
                 c = a - b;
                 System.out.println("Subtration of two numbers is: " + c);
                 System.out.println("------------------------------------------");
-
-                break;
-
-            case 3:
+            }
+            case 3 -> {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
                 b = sc.nextInt();
                 c = a * b;
                 System.out.println("Multiplication of two numbers is: " + c);
                 System.out.println("------------------------------------------");
-
-                break;
-
-            case 4:
+            }
+            case 4 -> {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
                 b = sc.nextInt();
                 c = a / b;
                 System.out.println("Division of two numbers is: " + c);
                 System.out.println("------------------------------------------");
-
-                break;
-
-            case 5:
+            }
+            case 5 -> {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
                 b = sc.nextInt();
                 c = b % a;
                 System.out.println("Modulo of two numbers is: " + c);
                 System.out.println("------------------------------------------");
-
-                break;
-
-            case 6:
+            }
+            case 6 -> {
                 System.out.println("Enter one numbers: ");
                 a = sc.nextInt();
                 c = a * a;
                 System.out.println("Square of " + a + " is: " + c);
                 System.out.println("------------------------------------------");
-
-                break;
-
-            case 7:
+            }
+            case 7 -> {
                 System.out.println("Enter one numbers: ");
                 a = sc.nextInt();
                 c = a * a * a;
                 System.out.println("Cube of " + a + " numbers is: " + c);
                 System.out.println("------------------------------------------");
-
-                break;
-
-            case 8:
+            }
+            case 8 -> {
                 System.out.println("1. sin()");
                 System.out.println("2. cos()");
                 System.out.println("3. tan()");
@@ -114,37 +100,34 @@ public class Calculations {
                 System.out.println("------------------------------------------");
 
                 switch (choice) {
-                    case 1:
+                    case 1 -> {
                         System.out.println("Enter angle for sin():");
                         s = sc.nextDouble();
                         s1 = Math.sin(s);
                         System.out.println("sin(" + s + ") : " + s1);
                         System.out.println("------------------------------------------");
-                        break;
-
-                    case 2:
+                    }
+                    case 2 -> {
                         System.out.println("Enter angle for cos():");
                         c = sc.nextDouble();
                         c1 = Math.cos(c);
                         System.out.println("cos(" + c + ") : " + c1);
                         System.out.println("------------------------------------------");
-                        break;
-
-                    case 3:
+                    }
+                    case 3 -> {
                         System.out.println("Enter angle for tan(): ");
                         t = sc.nextDouble();
                         t1 = Math.tan(t);
                         System.out.println("tan(" + t + ") : " + t1);
                         System.out.println("------------------------------------------");
-                        break;
+                    }
                 }
-                break;
-
-            default:
+            }
+            default -> {
                 System.out.println("\nInvalid Choice....");
                 System.out.println("please select above operation");
                 System.out.println("------------------------------------------");
-                break;
+            }
         }
     }
 }

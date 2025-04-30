@@ -1,6 +1,6 @@
 package com.java.practice.exception;
 
-public class Test {
+public class ExceptionDemo {
 
     public static void main(String[] args) {
         doGetMore();
