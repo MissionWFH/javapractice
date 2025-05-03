@@ -1,0 +1,27 @@
+Factory Design Pattern::
+The Factory Design Pattern in Java is a creational pattern that provides an interface for creating objects
+but allows subclasses to alter the type of objects that will be created. It encapsulates object creation logic,
+making the code more flexible and maintainable. The pattern is useful when a class doesn't know beforehand the exact
+type of object it needs to create or when you want to decouple the client code from the object creation process.
+
+Key Components::
+Product:            Defines the interface of objects the factory method creates.
+Concrete Product:   Implements the Product interface.
+Factory:            Declares the factory method, which returns an object of type Product.
+Concrete Factory:   Overrides the factory method to return an instance of a Concrete Product.
+Client:             Uses the Factory and Product interfaces.
+
+Usage Scenarios::
+1. When a class cannot anticipate the type of objects it needs to create.
+2. When a class wants its subclasses to specify the objects to be created.
+3. To centralize object creation logic and hide implementation details from the client.
+
+Advantages::
+Decoupling: Separates object creation from client code.
+Flexibility: Easily add new product types without modifying client code.
+Maintainability: Simplifies code by centralizing object creation.
+Testability: Allows for easier unit testing by providing a way to mock object creation.
+
+Disadvantages::
+Complexity: Can add complexity to the codebase, especially with many concrete products and factories.
+Overhead: May introduce unnecessary abstraction if not used appropriately.

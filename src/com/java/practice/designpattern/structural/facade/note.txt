@@ -1,0 +1,4 @@
+Facade design pattern::
+The Facade design pattern is a structural pattern that provides a simplified interface to a complex subsystem.
+It shields the client from the subsystem's complexity by offering a single entry point.
+This pattern is useful when dealing with intricate systems, as it promotes loose coupling and improves code readability.

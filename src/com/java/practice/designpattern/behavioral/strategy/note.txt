@@ -1,0 +1,17 @@
+Strategy design pattern::
+The Strategy design pattern is a behavioral pattern that enables selecting an algorithm at runtime.
+It encapsulates a family of algorithms, making them interchangeable.
+This allows the client to choose an algorithm from these families at runtime.
+
+Here's how it works:
+Define a Strategy Interface:   An interface or abstract class declares a method that all concrete strategy classes must implement.
+Implement Concrete Strategies: Each concrete class implements the strategy interface, providing its own version of the algorithm.
+Create a Context Class:        This class maintains a reference to a strategy object. It doesn't know the specific type of strategy,
+                               but it can execute the algorithm defined by the strategy interface.
+Client Chooses Strategy:       The client code selects and sets the desired strategy in the context object.
+
+Use Cases::
+1. You need to switch between different algorithms at runtime.
+2. You want to avoid using multiple if-else statements or switch cases to select algorithms.
+3. You want to encapsulate algorithms separately to improve code organization and maintainability.
+4. You need to add new algorithms easily without modifying existing code.

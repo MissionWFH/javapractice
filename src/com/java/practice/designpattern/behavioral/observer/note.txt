@@ -1,0 +1,16 @@
+Observer design pattern::
+The Observer design pattern establishes a one-to-many dependency between objects.
+When the state of one object (the subject) changes, all its dependents (observers) are automatically notified and updated.
+This pattern facilitates loose coupling, allowing for flexible and dynamic systems where objects can interact without explicit knowledge of each other.
+
+Key Components::
+Subject:          Maintains a list of observers and provides methods for attaching and detaching observers.
+                  It notifies observers of state changes.
+Observer:         Defines an interface for objects that need to be notified of changes in the subject.
+ConcreteSubject:  Implements the Subject interface and holds the state that observers are interested in.
+ConcreteObserver: Implements the Observer interface and reacts to changes in the ConcreteSubject.
+
+Use Cases::
+Event Handling:    Managing user interface events or system events.
+Real-time Updates: Notifying clients of changes in data, such as stock prices or news feeds.
+Messaging Systems: Implementing publish-subscribe patterns for message distribution.
