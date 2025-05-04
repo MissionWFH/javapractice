@@ -1,9 +1,24 @@
 package com.java.practice.basics;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AnagramString {
+
+    private static boolean isAnagramUsingArrays(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        char[] ch1 = str1.toCharArray();
+        char[] ch2 = str2.toCharArray();
+
+        Arrays.sort(ch1);
+        Arrays.sort(ch2);
+
+        return Arrays.equals(ch1, ch2);
+    }
 
     private static boolean isAnagramUsingOptimisedWayHashMap(String str1, String str2) {
         if (str1.length() != str2.length()) {
@@ -12,7 +27,6 @@ public class AnagramString {
 
         str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
-
         Map<Character, Integer> anagramMap = new HashMap<>();
         for (int i = 0; i < str1.length(); i++) {
             char c1 = str1.charAt(i);
@@ -21,7 +35,9 @@ public class AnagramString {
             anagramMap.put(c1, anagramMap.getOrDefault(c1, 0) + 1);
             anagramMap.put(c2, anagramMap.getOrDefault(c2, 0) - 1);
         }
-        return anagramMap.containsValue(0);
+        return anagramMap.values()
+                .stream()
+                .allMatch(x -> x == 0);
     }
 
     private static boolean isAnagramUsingHashMap(String str1, String str2) {
@@ -50,18 +66,19 @@ public class AnagramString {
     }
 
     public static void main(String[] args) {
-        String s1 = "keep"; // listen
-        String s2 = "peek"; // silent
-        if (isAnagramUsingHashMap(s1, s2)) {
-            System.out.println(s1 + " and " + s2 + " are anagrams using hashMap approach");
-        } else {
-            System.out.println(s1 + " and " + s2 + " are not anagrams using hashMap approach");
-        }
-
-        if (isAnagramUsingOptimisedWayHashMap(s1, s2)) {
-            System.out.println(s1 + " and " + s2 + " are anagrams using optimised way hashMap approach");
-        } else {
-            System.out.println(s1 + " and " + s2 + " are not anagrams using optimised way hashMap approach");
-        }
+        System.out.println(isAnagramUsingArrays("keep", "peek"));
+        System.out.println(isAnagramUsingArrays("listen", "silent"));
+        System.out.println(isAnagramUsingArrays("tea", "eat"));
+        System.out.println(isAnagramUsingArrays("gram", "jmrg"));
+        System.out.println("------------------------------------------");
+        System.out.println(isAnagramUsingOptimisedWayHashMap("keep", "peek"));
+        System.out.println(isAnagramUsingOptimisedWayHashMap("listen", "silent"));
+        System.out.println(isAnagramUsingOptimisedWayHashMap("tea", "eat"));
+        System.out.println(isAnagramUsingOptimisedWayHashMap("gram", "jmrg"));
+        System.out.println("------------------------------------------");
+        System.out.println(isAnagramUsingHashMap("keep", "peek"));
+        System.out.println(isAnagramUsingHashMap("listen", "silent"));
+        System.out.println(isAnagramUsingHashMap("tea", "eat"));
+        System.out.println(isAnagramUsingHashMap("gram", "jmrg"));
     }
 }
