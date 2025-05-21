@@ -33,11 +33,15 @@ public class AnagramString {
             char c2 = str2.charAt(i);
 
             anagramMap.put(c1, anagramMap.getOrDefault(c1, 0) + 1);
+            if (anagramMap.get(c1) == 0) {
+                anagramMap.remove(c1);
+            }
             anagramMap.put(c2, anagramMap.getOrDefault(c2, 0) - 1);
+            if (anagramMap.get(c2) == 0) {
+                anagramMap.remove(c2);
+            }
         }
-        return anagramMap.values()
-                .stream()
-                .allMatch(x -> x == 0);
+        return anagramMap.isEmpty();
     }
 
     private static boolean isAnagramUsingHashMap(String str1, String str2) {
@@ -70,15 +74,18 @@ public class AnagramString {
         System.out.println(isAnagramUsingArrays("listen", "silent"));
         System.out.println(isAnagramUsingArrays("tea", "eat"));
         System.out.println(isAnagramUsingArrays("gram", "jmrg"));
+        System.out.println(isAnagramUsingArrays("aabbcc", "bbcaca"));
         System.out.println("------------------------------------------");
         System.out.println(isAnagramUsingOptimisedWayHashMap("keep", "peek"));
         System.out.println(isAnagramUsingOptimisedWayHashMap("listen", "silent"));
         System.out.println(isAnagramUsingOptimisedWayHashMap("tea", "eat"));
         System.out.println(isAnagramUsingOptimisedWayHashMap("gram", "jmrg"));
+        System.out.println(isAnagramUsingOptimisedWayHashMap("aabbcc", "bbcaca"));
         System.out.println("------------------------------------------");
         System.out.println(isAnagramUsingHashMap("keep", "peek"));
         System.out.println(isAnagramUsingHashMap("listen", "silent"));
         System.out.println(isAnagramUsingHashMap("tea", "eat"));
         System.out.println(isAnagramUsingHashMap("gram", "jmrg"));
+        System.out.println(isAnagramUsingHashMap("aabbcc", "bbcaca"));
     }
 }

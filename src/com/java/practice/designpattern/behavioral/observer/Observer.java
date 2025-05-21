@@ -8,7 +8,7 @@ interface Observer {
 // Concrete Observer
 class Customer implements Observer {
 
-    private String name;
+    private final String name;
 
     public Customer(String name) {
         this.name = name;

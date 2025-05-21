@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Calculations {
 
-    int a;
-    int b;
     int c;
     int choice;
 
@@ -35,55 +33,45 @@ public class Calculations {
         switch (choice) {
             case 1 -> {
                 System.out.println("Enter two numbers: ");
-                a = sc.nextInt();
-                b = sc.nextInt();
-                c = a + b;
+                c = Math.addExact(sc.nextInt(), sc.nextInt());
                 System.out.println("Addtion of two numbers is: " + c);
                 System.out.println("------------------------------------------");
             }
             case 2 -> {
                 System.out.println("Enter two numbers: ");
-                a = sc.nextInt();
-                b = sc.nextInt();
-                c = a - b;
+                c = Math.subtractExact(sc.nextInt(), sc.nextInt());
                 System.out.println("Subtration of two numbers is: " + c);
                 System.out.println("------------------------------------------");
             }
             case 3 -> {
                 System.out.println("Enter two numbers: ");
-                a = sc.nextInt();
-                b = sc.nextInt();
-                c = a * b;
+                c = Math.multiplyExact(sc.nextInt(), sc.nextInt());
                 System.out.println("Multiplication of two numbers is: " + c);
                 System.out.println("------------------------------------------");
             }
             case 4 -> {
                 System.out.println("Enter two numbers: ");
-                a = sc.nextInt();
-                b = sc.nextInt();
-                c = a / b;
+                c = Math.floorDiv(sc.nextInt(), sc.nextInt());
                 System.out.println("Division of two numbers is: " + c);
                 System.out.println("------------------------------------------");
             }
             case 5 -> {
                 System.out.println("Enter two numbers: ");
-                a = sc.nextInt();
-                b = sc.nextInt();
-                c = b % a;
+                c = Math.floorMod(sc.nextInt(), sc.nextInt());
                 System.out.println("Modulo of two numbers is: " + c);
                 System.out.println("------------------------------------------");
             }
             case 6 -> {
                 System.out.println("Enter one numbers: ");
-                a = sc.nextInt();
-                c = a * a;
+                int a = sc.nextInt();
+                c = (int) Math.pow(a, 2);
                 System.out.println("Square of " + a + " is: " + c);
                 System.out.println("------------------------------------------");
             }
             case 7 -> {
                 System.out.println("Enter one numbers: ");
-                a = sc.nextInt();
-                c = a * a * a;
+                int a = sc.nextInt();
+                c = (int) Math.pow(a, 3);
                 System.out.println("Cube of " + a + " numbers is: " + c);
                 System.out.println("------------------------------------------");
             }

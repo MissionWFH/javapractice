@@ -3,6 +3,7 @@ package com.java.practice.basics;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CharOccurrenceDemo {
 
@@ -22,8 +23,9 @@ public class CharOccurrenceDemo {
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println("Char Occurrence count: " + charOccurrenceCount);
 
-        List<Map.Entry<String, Long>> duplicateCharCount = Arrays.stream(name.split(""))
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+        List<Map.Entry<Character, Long>> duplicateCharCount = name.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .filter(x -> x.getValue() >= 2)
@@ -31,7 +33,8 @@ public class CharOccurrenceDemo {
                 .collect(Collectors.toList());
         System.out.println("Duplicate Char count: " + duplicateCharCount);
 
-        List<Map.Entry<String, Long>> uniqueCharCount = Arrays.stream(name.split(""))
+        List<Map.Entry<Character, Long>> uniqueCharCount = name.chars()
+                .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet()
                 .stream()
@@ -39,7 +42,8 @@ public class CharOccurrenceDemo {
                 .collect(Collectors.toList());
         System.out.println("Unique Char count: " + uniqueCharCount);
 
-        String nonRepeatFirstChar = Arrays.stream(name.split(""))
+        Character nonRepeatFirstChar = name.chars()
+                .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
                 .entrySet()
                 .stream()
@@ -48,7 +52,8 @@ public class CharOccurrenceDemo {
                 .findFirst().orElse(null);
         System.out.println("Non-repeat first char: " + nonRepeatFirstChar);
 
-        String maximumRepeatChar = Arrays.stream(name.split(""))
+        Character maximumRepeatChar = name.chars()
+                .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet()
                 .stream()
@@ -72,6 +77,7 @@ public class CharOccurrenceDemo {
                 .orElse(null);
         System.out.println("First 3rd char: " + nTHChar);
 
+        System.out.println("---------------------------------------------------------");
         List<String> list = List.of("ASD", "QWE");
 
         List<Character> list1 = list.stream()
@@ -82,9 +88,15 @@ public class CharOccurrenceDemo {
         List<String> strings = Arrays.asList("apple", "banana", "orange", "grape", "melon");
         char target = 'a';
         long occurrences = strings.stream()
-                .flatMapToInt(CharSequence::chars)
+                .flatMapToInt(String::chars)
                 .filter(c -> c == target)
                 .count();
         System.out.println("Occurrences of '" + target + "': " + occurrences);
+
+        Map<Character, List<Integer>> indexByChar = IntStream.range(0, input.length())
+                .boxed()
+                .collect(Collectors.groupingBy(input::charAt));
+
+        System.out.println("Index location by char:\n" + indexByChar);
     }
 }
