@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class CharOccurrenceDemo {
 
@@ -97,6 +98,27 @@ public class CharOccurrenceDemo {
                 .boxed()
                 .collect(Collectors.groupingBy(input::charAt));
 
-        System.out.println("Index location by char:\n" + indexByChar);
+        System.out.println("Index location by char: " + indexByChar);
+
+        String str = "aabcaabcaabbccd"; //{4=[b, c], 5=[a]}
+
+        Map<Long, List<Character>> collect = str.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .collect(Collectors.groupingBy(Map.Entry::getValue,
+                        Collectors.mapping(Map.Entry::getKey, Collectors.toList())));
+
+        System.out.println("Char occurrences by count: " + collect);
+
+        String text = "qwerty123456-%@^";
+        String alphaNum = text.chars()
+                .mapToObj(x -> (char) x)
+                .filter(Character::isLetterOrDigit)
+                .map(String::valueOf)
+                .collect(Collectors.joining());
+
+        System.out.println("Get alphaNum from " + text + " : " + alphaNum);
     }
 }

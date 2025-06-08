@@ -1,10 +1,13 @@
 package com.java.practice.basics;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class StringDemo {
 
     public static void main(String[] args) {
 
-        String s1 = "java string split method by javatpoint";
+        String s1 = "my name is avinash";
         String[] words = s1.split("\\s");//splits the string based on string
         //using java foreach loop to print elements of string array
 
@@ -22,13 +25,11 @@ public class StringDemo {
 
         System.out.println("\n-------------------------");
 
-        StringBuilder r = new StringBuilder();
-        for (String w : words) {
-            for (int i = w.length() - 1; i >= 0; i--) {
-                r.append(w.charAt(i));
-            }
-            System.out.print(r + " ");
-        }
+        String collect = Stream.of(s1)
+                .map(x -> new StringBuilder(x).reverse().toString())
+                .collect(Collectors.joining(" "));
+        System.out.println(collect);
+
         System.out.println("\n-------------------------");
         String s11 = "InterviewBit";
         String s2 = s11;

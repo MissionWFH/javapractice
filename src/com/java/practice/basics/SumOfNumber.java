@@ -12,6 +12,12 @@ public class SumOfNumber {
             sum = sum + num;
             i = i / 10;
         }
-        System.out.println(sum);
+        System.out.println("Sum of digits: " + sum);
+
+        int sum1 = String.valueOf(i).chars()
+                .map(Character::getNumericValue)
+                .sum();
+        System.out.println("Sum of digits: " + sum1);
+
     }
 }

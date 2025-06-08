@@ -13,6 +13,15 @@ interface Drawable {
     private void getData() {
         System.out.println("private method in interface");
     }
+
+    private static void getPrintData() {
+        System.out.println("private static method in interface");
+    }
+
+    static void print() {
+        getPrintData();
+        System.out.println("static method in interface");
+    }
 }
 
 class Rectangle implements Drawable {
@@ -21,6 +30,10 @@ class Rectangle implements Drawable {
         Drawable.super.msg();
         System.out.println("drawing rectangle");
     }
+
+    public void msg() {
+        System.out.println("Overridden implementation");
+    }
 }
 
 public class TestInterfaceDefault {
@@ -28,5 +41,6 @@ public class TestInterfaceDefault {
         Drawable d = new Rectangle();
         d.draw();
         d.msg();
+        Drawable.print();
     }
 }

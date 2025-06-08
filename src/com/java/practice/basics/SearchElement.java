@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class SearchElement {
 
-    static int[] getRandomNums() {
+    public static int[] getRandomNums() {
         StringBuilder sb;
         List<Integer> list = new ArrayList<>();
         Random r = new Random();
