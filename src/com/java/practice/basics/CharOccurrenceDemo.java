@@ -4,14 +4,13 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class CharOccurrenceDemo {
 
     public static void main(String[] args) {
 
         String input = "aarvi";
-        String name = input.replaceAll("\\s+", "").toLowerCase();
+        String name = input.replaceAll(" ", "").toLowerCase(); // handled when input is a sentence
 
         System.out.println("Original input: " + name);
 
@@ -120,5 +119,28 @@ public class CharOccurrenceDemo {
                 .collect(Collectors.joining());
 
         System.out.println("Get alphaNum from " + text + " : " + alphaNum);
+
+        System.out.println("Longest unique string from " + str + " : " + longestUniqueSubString("abcdeeefghijaabc"));
+    }
+
+    private static String longestUniqueSubString(String str) {
+        HashSet<Character> set = new HashSet<>();
+        String temp = "";
+        String longestUniqueStr = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if (set.contains(ch)) {
+                temp = "";
+                set.clear();
+            }
+            set.add(ch);
+            temp += ch;
+            if (temp.length() > longestUniqueStr.length()) {
+                longestUniqueStr = temp;
+            }
+        }
+        return longestUniqueStr;
     }
 }

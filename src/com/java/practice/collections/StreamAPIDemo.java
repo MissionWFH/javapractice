@@ -1,6 +1,7 @@
 package com.java.practice.collections;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class StreamAPIDemo {
@@ -212,15 +213,22 @@ public class StreamAPIDemo {
         );
         System.out.println("--------------------------------------------------------------------------------------");
 
-        // 26. To get a list of employees from each department whose salary is greater than the average salary of their department ***
-//        employees.stream()
-//                .filter(e -> e.salary() > averageMap.get(e.deptName()))
-//                .collect(Collectors.groupingBy(Employee::deptName))
-//                .forEach((dept, empListAboveAvg) -> {
-//                    System.out.println("Employees in Department who salary greater than average salary: " + dept);
-//                    empListAboveAvg.forEach(e -> System.out.println("  " + e.name() + " – >" + e.salary()));
-//                });
-//        System.out.println("--------------------------------------------------------------------------------------");
+        // 26. To get a list of employees from each department whose salary is greater than the average salary of their department
+        System.out.println("Employees from each department who's salary greater than average salary: ");
+        employees.stream()
+                .collect(Collectors.groupingBy(Employee::deptName,
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                empList -> {
+                                    double avgSal = empList.stream().mapToDouble(Employee::salary).average().orElse(0.0);
+                                    return empList.stream().filter(e -> e.salary() > avgSal).toList();
+                                }
+                        )
+                ))
+                .forEach((dept, empListAboveAvg) ->
+                        empListAboveAvg.forEach(e -> System.out.println(e.name() + " from " + dept + " – > " + e.salary()))
+                );
+        System.out.println("--------------------------------------------------------------------------------------");
 
         // 27. Find Highest salary in the organisation.
         Optional<Employee> empHighest = employees.stream()
@@ -393,6 +401,17 @@ public class StreamAPIDemo {
                         Employee::deptName, Collectors.filtering(e -> e.salary() > 140, Collectors.toSet())));
         wellPaidEmployeesByDepartment.forEach((dept, wellPaidEmployees) -> System.out.println(dept + " -> " + wellPaidEmployees));
         System.out.println("--------------------------------------------------------------------------------------");
+
+        // 46. Remove duplicate employees by empId
+        System.out.println("Removed duplicate employees by empId :: ");
+        employees.stream()
+                .collect(Collectors.toMap(
+                        Employee::id,
+                        Function.identity(),
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new
+                )).values()
+                .forEach(System.out::println);
     }
 
     private static void streamAPIQuestionsAboutStudent(List<Student> students) {
