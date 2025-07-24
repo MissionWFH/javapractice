@@ -36,7 +36,7 @@ class Rectangle implements Drawable {
     }
 }
 
-public class TestInterfaceDefault {
+public class TestInterfaceDefault  {
     public static void main(String[] args) {
         Drawable d = new Rectangle();
         d.draw();

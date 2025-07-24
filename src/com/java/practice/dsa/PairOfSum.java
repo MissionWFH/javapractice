@@ -1,4 +1,4 @@
-package com.java.practice.basics;
+package com.java.practice.dsa;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,16 +9,23 @@ import java.util.stream.IntStream;
 public class PairOfSum {
 
     public static void main(String[] args) {
-        List<Integer> nums = List.of(2, 4, 3, 5, 7, 8, 1, 6);
-        int[] arrNum = new int[]{2, 4, 3, 5, 7, 8, 1, 6};
+        List<Integer> nums = List.of(2, 4, 3, 5, 7, 8, 1, 2, 6);
+        int[] arrNum = new int[]{2, 4, 3, 5, 7, 8, 1, 2, 6};
+        int target = 9;
+        System.out.println("Input Arr: " + Arrays.toString(arrNum) + "\nTarget: " + target);
+        System.out.println("------------------------------");
 
-        findPairs(arrNum, 9);
+        findPairs(arrNum, target);
         System.out.println("------------------------------");
-        findPairs2(nums, 9);
+
+        findPairs2(nums, target);
         System.out.println("------------------------------");
-        int[] twoSum = getTwoSum(arrNum, 9);
-        System.out.println("Two sum of given " + Arrays.deepToString(Arrays.stream(arrNum).boxed().toArray()));
-        System.out.println("Index's: " + twoSum[0] + " " + twoSum[1]);
+
+        int[] twoSum = getTwoSumIndex(arrNum, target);
+        System.out.println("Two Sum Index's: " + twoSum[0] + " " + twoSum[1]);
+        System.out.println("------------------------------");
+
+        getPairsUsingTwoPointer(arrNum, target);
     }
 
     public static void findPairs(int[] numbers, int target) {
@@ -38,7 +45,7 @@ public class PairOfSum {
                 .forEach(System.out::println);
     }
 
-    public static int[] getTwoSum(int[] numbers, int target) {
+    public static int[] getTwoSumIndex(int[] numbers, int target) {
         Map<Integer, Integer> twoSumMap = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
             int delta = target - numbers[i];
@@ -48,5 +55,23 @@ public class PairOfSum {
             twoSumMap.put(numbers[i], i);
         }
         return new int[]{-1, -1};
+    }
+
+    public static void getPairsUsingTwoPointer(int[] numbers, int target) {
+        Arrays.sort(numbers);  // Required for two-pointer
+        int left = 0, right = numbers.length - 1;
+
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
+            if (sum == target) {
+                System.out.println("(" + numbers[left] + ", " + numbers[right] + ")");
+                left++;
+                right--;
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
     }
 }

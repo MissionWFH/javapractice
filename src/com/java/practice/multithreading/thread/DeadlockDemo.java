@@ -1,23 +1,26 @@
 package com.java.practice.multithreading.thread;
 
-class DeadLock extends Thread {
-    public void run() {
-        int x = 0, y = 0;
-        for (int i = 0; i < 1000; i++)
-            synchronized (DeadLock.class) {
-                x = 12;
-                y = 15;
-            }
-        System.out.print("x = " + x + " y = " + y + "\n");
+class Task {
+    public synchronized void method1(Task t2) {
+        System.out.println(Thread.currentThread().getName() + " is executing method1");
+        t2.method2();
+    }
+
+    public synchronized void method2() {
+        System.out.println(Thread.currentThread().getName() + " is executing method2");
     }
 }
 
 public class DeadlockDemo {
 
     public static void main(String[] args) {
-        DeadLock lock1 = new DeadLock();
-        DeadLock lock2 = new DeadLock();
-        lock1.start();
-        lock2.start();
+        Task t1 = new Task();
+        Task t2 = new Task();
+
+        Thread th1 = new Thread(() -> t1.method1(t2));
+        Thread th2 = new Thread(() -> t2.method1(t1));
+
+        th1.start();
+        th2.start();
     }
 }

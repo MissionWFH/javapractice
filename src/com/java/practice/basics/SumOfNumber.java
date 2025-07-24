@@ -6,6 +6,12 @@ public class SumOfNumber {
 
         int sum = 0;
         int i = 12345;
+
+        int sum1 = String.valueOf(i).chars()
+                .map(Character::getNumericValue)
+                .sum();
+        System.out.println("Sum of digits: " + sum1);
+
         while (i > 0) {
             int num = i % 10;
             // sum = ( sum * 10 ) + num;
@@ -13,11 +19,5 @@ public class SumOfNumber {
             i = i / 10;
         }
         System.out.println("Sum of digits: " + sum);
-
-        int sum1 = String.valueOf(i).chars()
-                .map(Character::getNumericValue)
-                .sum();
-        System.out.println("Sum of digits: " + sum1);
-
     }
 }

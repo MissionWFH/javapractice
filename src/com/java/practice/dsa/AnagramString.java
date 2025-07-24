@@ -1,4 +1,4 @@
-package com.java.practice.basics;
+package com.java.practice.dsa;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -60,16 +60,7 @@ public class StreamListDemo {
 
         System.out.println(intersection);
 
-        List<Integer> numbers = Arrays.asList(2, 4, 6, 8, 10);
-        int target = 12;
-        Set<String> pairs = numbers.stream()
-                .flatMap(i -> numbers.stream().
-                        map(j -> i + j == target ? "(" + i + ", " + j + ")" : ""))
-                .filter(s -> !s.isEmpty())
-                .collect(Collectors.toSet());
-        System.out.println("Pairs that sum up to " + target + ": " + pairs);
-
-//        List<Integer> numbers = List.of(5, 2, 8, 3, 7);
+        List<Integer> numbers = List.of(5, 2, 8, 3, 7);
         Map<String, Integer> minMax = numbers.stream()
                 .collect(Collectors.teeing(
                         Collectors.minBy(Integer::compareTo),

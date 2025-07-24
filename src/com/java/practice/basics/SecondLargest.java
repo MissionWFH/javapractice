@@ -8,24 +8,26 @@ public class SecondLargest {
     public static void main(String[] args) {
 
         int[] arr = SearchElement.getRandomNums();
-        int largest = arr[0];
-        int secondLargest = arr[0];
-        int smallest = arr[0];
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+        int smallest = Integer.MIN_VALUE;
 
-        System.out.println("The given array is: " + Arrays.deepToString(Arrays.stream(arr).boxed().toArray()));
+        System.out.println("The given array is: " + Arrays.toString(arr));
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > largest) {
                 secondLargest = largest;
                 largest = arr[i];
-            } else if (arr[i] > secondLargest) {
+            } else if (arr[i] > secondLargest && arr[i] != largest) {
                 secondLargest = arr[i];
             }
         }
         System.out.println("\nLargest number is: " + largest);
+        System.out.println("\nSecond largest number is: " + secondLargest);
 
         Integer secondLargestNum = Arrays.stream(arr)
                 .boxed()
+                .distinct()
                 .sorted(Comparator.reverseOrder())
                 .skip(1)
                 .findFirst().orElse(null);

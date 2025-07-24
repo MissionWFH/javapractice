@@ -124,6 +124,10 @@ public class CharOccurrenceDemo {
     }
 
     private static String longestUniqueSubString(String str) {
+        if(str == null || str.isEmpty()) {
+            return "";
+        }
+
         HashSet<Character> set = new HashSet<>();
         String temp = "";
         String longestUniqueStr = "";

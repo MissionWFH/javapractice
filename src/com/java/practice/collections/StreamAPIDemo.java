@@ -47,9 +47,8 @@ public class StreamAPIDemo {
         System.out.println("--------------------------------------------------------------------------------------");
 
         // 6. Find maximum age of employee.
-        OptionalInt max = employees.stream().mapToInt(Employee::age).max();
-        if (max.isPresent())
-            System.out.println("Maximum age of Employee :: " + max.getAsInt());
+        Employee maxAgeEmp = employees.stream().max(Comparator.comparingInt(Employee::age)).orElse(null);
+        System.out.println("Maximum age of Employee :: " + maxAgeEmp);
         System.out.println("--------------------------------------------------------------------------------------");
 
         // 7. Print Average age of Male and Female Employees.
