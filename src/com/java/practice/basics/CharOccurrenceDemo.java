@@ -119,32 +119,5 @@ public class CharOccurrenceDemo {
                 .collect(Collectors.joining());
 
         System.out.println("Get alphaNum from " + text + " : " + alphaNum);
-
-        System.out.println("Longest unique string from " + str + " : " + longestUniqueSubString("abcdeeefghijaabc"));
-    }
-
-    private static String longestUniqueSubString(String str) {
-        if(str == null || str.isEmpty()) {
-            return "";
-        }
-
-        HashSet<Character> set = new HashSet<>();
-        String temp = "";
-        String longestUniqueStr = "";
-
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-
-            if (set.contains(ch)) {
-                temp = "";
-                set.clear();
-            }
-            set.add(ch);
-            temp += ch;
-            if (temp.length() > longestUniqueStr.length()) {
-                longestUniqueStr = temp;
-            }
-        }
-        return longestUniqueStr;
     }
 }

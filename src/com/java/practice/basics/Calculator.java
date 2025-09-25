@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Calculator {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Calculations calculations = new Calculations();
         String ans;
 
@@ -28,6 +28,8 @@ public class Calculator {
             System.out.println("please select above operation");
             System.out.println("------------------------------------------");
             calculations.operations();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

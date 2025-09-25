@@ -27,4 +27,9 @@ public class Test24032025 {
         String s3 = s;
         System.out.println(s3);
     }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

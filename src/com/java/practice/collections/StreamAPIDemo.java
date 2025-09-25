@@ -316,11 +316,7 @@ public class StreamAPIDemo {
                         ));
         System.out.println("--------------------------------------------------------------------------------------");
 
-        // 38. Print lowest paid employee in the organisation
-        employees.stream()
-                .min(Comparator.comparingDouble(Employee::salary))
-                .ifPresent(e -> System.out.println("Lowest paid employee :: " + e.name()));
-        System.out.println("--------------------------------------------------------------------------------------");
+        // 38. Print lowest paid employee in the organisation./ Repeat que on 33
 
         // 39. List of employee’s second-highest salary based on department
         System.out.println("Second-Highest salary dept wise :: ");

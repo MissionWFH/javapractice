@@ -2,7 +2,7 @@ package com.java.practice.dsa;
 
 import java.util.Arrays;
 
-public class PlaceNumToEndOfArray {
+public class PlaceConsecutiveNumToEnd {
 
     public static void main(String[] args) {
         int[] array = {8, 6, 1, 3, 1, 5, 1, 7};
