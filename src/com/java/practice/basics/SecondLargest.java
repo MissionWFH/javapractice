@@ -26,7 +26,7 @@ public class SecondLargest {
             }
         }
         System.out.println("\nLargest number is: " + largest);
-        System.out.println("\nSecond largest number is: " + secondLargest);
+        System.out.println("Second largest number is: " + secondLargest);
         System.out.println("Smallest number is: " + smallest);
 
         Integer secondLargestNum = Arrays.stream(arr)
@@ -35,6 +35,6 @@ public class SecondLargest {
                 .sorted(Comparator.reverseOrder())
                 .skip(1)
                 .findFirst().orElse(null);
-        System.out.println("Second largest number using stream is: " + secondLargestNum);
+        System.out.println("\nSecond largest number using stream is: " + secondLargestNum);
     }
 }

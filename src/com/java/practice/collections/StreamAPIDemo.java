@@ -407,6 +407,17 @@ public class StreamAPIDemo {
                         LinkedHashMap::new
                 )).values()
                 .forEach(System.out::println);
+        System.out.println("--------------------------------------------------------------------------------------");
+
+        // 47. Find most common First letter among all employee names.
+        Optional<Map.Entry<Character, Long>> mostCommonFirstLetter = employees.stream()
+                .map(e -> e.name().charAt(0))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue());
+        mostCommonFirstLetter.ifPresent(entry ->
+                System.out.println("Most common first letter among all employee names :: " + entry.getKey() + " -> " + entry.getValue()));
     }
 
     private static void streamAPIQuestionsAboutStudent(List<Student> students) {

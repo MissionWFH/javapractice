@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 class Customer {
 
-    private int balance = 6000;
+    private int balance = 6000; // to perform seamless translation increase the initial balance
 
     public Customer() {
         System.out.println("-----------------------------");

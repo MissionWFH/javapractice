@@ -16,7 +16,7 @@ public class EvenOddThreadDemo {
 
     public synchronized void printOdd() {
         while (number <= MAX) {
-            while (number % 2 == 0) {
+            if (number % 2 == 0) {
                 try {
                     wait();
                 } catch (InterruptedException e) {
@@ -30,7 +30,7 @@ public class EvenOddThreadDemo {
 
     public synchronized void printEven() {
         while (number <= MAX) {
-            while (number % 2 != 0) {
+            if (number % 2 != 0) {
                 try {
                     wait();
                 } catch (InterruptedException e) {

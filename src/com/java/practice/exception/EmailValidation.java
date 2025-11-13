@@ -19,7 +19,7 @@ public class EmailValidation {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter email address");
         String email = sc.next();
-        if (email.contains("@")) {
+        if (!email.contains("@")) {
             throw new IllegalSyntax("Invalid email: " + email);
         }
 
