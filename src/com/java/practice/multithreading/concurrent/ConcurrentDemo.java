@@ -1,4 +1,4 @@
-package com.java.practice.multithreading.concurrent.demo;
+package com.java.practice.multithreading.concurrent;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
