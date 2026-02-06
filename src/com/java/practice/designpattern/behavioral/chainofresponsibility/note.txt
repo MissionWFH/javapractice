@@ -1,0 +1,17 @@
+Chain of Responsibility design pattern:
+The Chain of Responsibility design pattern creates a system of processing objects, each with the ability to handle a particular type of request.
+If an object cannot handle the request, it passes it to the next object in the chain.
+This decouples the sender of a request from its receivers.
+
+Analogy: The Customer Service Escalation Process
+Imagine a customer service department where a customer's query moves through a chain of representatives until the right person is found to resolve it:
+Level 1 Support (Basic Issues): Handles simple issues like password resets.
+Level 2 Support (Technical Issues): If Level 1 can't help (e.g., a technical error), the request is passed up.
+Level 3 Support (Management): For complex complaints or billing disputes that Level 2 cannot handle, the request is escalated further.
+The customer only interacts with the initial point of contact, and the request is internally routed until it is resolved.
+
+Use Case: Expense Approval System
+A common use case in software development is an expense approval system. The approval logic varies depending on the expense amount:
+Manager: Approves expenses up to $1,000.
+Director: Approves expenses up to $10,000.
+CEO: Approves any amount.
