@@ -119,5 +119,14 @@ public class CharOccurrenceDemo {
                 .collect(Collectors.joining());
 
         System.out.println("Get alphaNum from " + text + " : " + alphaNum);
+
+        String sentence = "The quick brown fox jumps over the lazy dog";
+
+        // pangram means sentence should contain all alphabet letters
+        boolean isPangram = sentence.toLowerCase().chars()
+                .filter(Character::isLetter)
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toSet()).size() == 26;
+        System.out.println("Given sentence is Pangram: " + isPangram);
     }
 }
